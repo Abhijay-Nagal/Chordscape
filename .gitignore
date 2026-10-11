@@ -1,0 +1,32 @@
+.gradle/
+build/
+*/build/
+local.properties
+.idea/
+*.iml
+.kotlin/
+captures/
+.DS_Store
+dist/
+
+# Release signing secrets
+keystore/
+keystore.properties
+*.jks
+
+# Promo video work files
+promo/out/
+promo/recordings/
+promo/frames/
+promo/tools/
+
+# Local notes and design references (screenshots of other apps) - kept on this computer only
+docs/changes.txt
+docs/learn1.jpeg
+docs/learn2.jpeg
+docs/piano_ui.jpeg
+docs/colour_pallete.jpeg
+
+# Python caches from the promo scripts
+__pycache__/
+*.pyc
