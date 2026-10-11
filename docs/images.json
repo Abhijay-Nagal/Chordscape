@@ -1,0 +1,303 @@
+{
+ "bach": {
+  "file": "img_bach.jpg",
+  "title": "File:Johann Sebastian Bach.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Johann_Sebastian_Bach.jpg",
+  "author": "Elias Gottlob Haussmann",
+  "license": "Public domain"
+ },
+ "handel": {
+  "file": "img_handel.jpg",
+  "title": "File:George Frideric Handel by Balthasar Denner.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:George_Frideric_Handel_by_Balthasar_Denner.jpg",
+  "author": "Attributed to Balthasar Denner",
+  "license": "Public domain"
+ },
+ "haydn": {
+  "file": "img_haydn.jpg",
+  "title": "File:Joseph Haydn.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Joseph_Haydn.jpg",
+  "author": "Thomas Hardy",
+  "license": "Public domain"
+ },
+ "beethoven": {
+  "file": "img_beethoven.jpg",
+  "title": "File:Beethoven.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Beethoven.jpg",
+  "author": "Joseph Karl Stieler",
+  "license": "Public domain"
+ },
+ "chopin": {
+  "file": "img_chopin.jpg",
+  "title": "File:Frederic Chopin photo.jpeg",
+  "source": "https://commons.wikimedia.org/wiki/File:Frederic_Chopin_photo.jpeg",
+  "author": "Louis-Auguste Bisson",
+  "license": "Public domain"
+ },
+ "liszt": {
+  "file": "img_liszt.jpg",
+  "title": "File:Franz Liszt by Herman Biow- 1843.png",
+  "source": "https://commons.wikimedia.org/wiki/File:Franz_Liszt_by_Herman_Biow-_1843.png",
+  "author": "Herman Biow",
+  "license": "Public domain"
+ },
+ "schumann": {
+  "file": "img_schumann.jpg",
+  "title": "File:Robert Schumann 1839.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_1839.jpg",
+  "author": "Josef Kriehuber",
+  "license": "Public domain"
+ },
+ "clara_schumann": {
+  "file": "img_clara_schumann.jpg",
+  "title": "File:Clara Schumann 1878.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Franz_von_Lenbach_-_Clara_Schumann_(Pastell_1878).jpg",
+  "author": "Franz von Lenbach",
+  "license": "Public domain"
+ },
+ "brahms": {
+  "file": "img_brahms.jpg",
+  "title": "File:JohannesBrahms.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:JohannesBrahms.jpg",
+  "author": "C. Brasch, Berlin (biography)",
+  "license": "Public domain"
+ },
+ "grieg": {
+  "file": "img_grieg.jpg",
+  "title": "File:Edvard Grieg (1888) by Elliot and Fry.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Edvard_Grieg_(1888)_by_Elliot_and_Fry.jpg",
+  "author": "Elliott &amp; Fry",
+  "license": "Public domain"
+ },
+ "tchaikovsky": {
+  "file": "img_tchaikovsky.jpg",
+  "title": "File:Tchaikovsky by Reutlinger (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tchaikovsky_by_Reutlinger_(cropped).jpg",
+  "author": "Émile Reutlinger",
+  "license": "Public domain"
+ },
+ "debussy": {
+  "file": "img_debussy.jpg",
+  "title": "File:Atelier Nadar - Claude Debussy (1862-1918), Komponist (Zeno Fotografie).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Atelier_Nadar_-_Claude_Debussy_(1862-1918),_Komponist_(Zeno_Fotografie).jpg",
+  "author": "Atelier Nadar",
+  "license": "Public domain"
+ },
+ "satie": {
+  "file": "img_satie.jpg",
+  "title": "File:Erik Satie - BNF1.jpeg",
+  "source": "https://commons.wikimedia.org/wiki/File:Erik_Satie_-_BNF1.jpeg",
+  "author": "Unattributed",
+  "license": "Public domain"
+ },
+ "joplin": {
+  "file": "img_joplin.jpg",
+  "title": "File:Scott Joplin 19072.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Scott_Joplin_19072.jpg",
+  "author": "Unknown authorUnknown author",
+  "license": "Public domain"
+ },
+ "rachmaninoff": {
+  "file": "img_rachmaninoff.jpg",
+  "title": "File:Sergei Rachmaninoff cph.3a40575.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sergei_Rachmaninoff_cph.3a40575.jpg",
+  "author": "Kubey-Rembrandt Studios (Philadephia, Pennsylvania)",
+  "license": "Public domain"
+ },
+ "dvorak": {
+  "file": "img_dvorak.jpg",
+  "title": "File:Dvorak.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Dvorak.jpg",
+  "author": "Unknown authorUnknown author",
+  "license": "Public domain"
+ },
+ "art_tatum": {
+  "file": "img_art_tatum.jpg",
+  "title": "File:(Portrait of Art Tatum, Rochester, N.Y.(?), ca. May 1946) (LOC) (5148796890).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:(Portrait_of_Art_Tatum,_Rochester,_N.Y.(%3F),_ca._May_1946)_(LOC)_(5148796890).jpg",
+  "author": "The Library of Congress",
+  "license": "Public domain"
+ },
+ "thelonious_monk": {
+  "file": "img_thelonious_monk.jpg",
+  "title": "File:(Portrait of Thelonious Monk, Minton's Playhouse, New York, N.Y., ca. Sept. 1947) (LOC) (4843138893).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:(Portrait_of_Thelonious_Monk,_Minton%27s_Playhouse,_New_York,_N.Y.,_ca._Sept._1947)_(LOC)_(4843138893).jpg",
+  "author": "The Library of Congress",
+  "license": "Public domain"
+ },
+ "clavichord": {
+  "file": "img_clavichord.jpg",
+  "title": "File:Clavichord MET 172212.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Clavichord_MET_172212.jpg",
+  "author": "Creator:Johann Christoph Jesse",
+  "license": "CC0"
+ },
+ "fortepiano": {
+  "file": "img_fortepiano.jpg",
+  "title": "File:Hammerflügel Walter MIM 5423.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Hammerfl%C3%BCgel_Walter_MIM_5423.jpg",
+  "author": "Museumsinsulaner",
+  "license": "Public domain"
+ },
+ "grand_piano": {
+  "file": "img_grand_piano.jpg",
+  "title": "File:Grand Piano MET DT8236.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Grand_Piano_MET_DT8236.jpg",
+  "author": "Creator:Steinway &amp; Sons",
+  "license": "CC0"
+ },
+ "harpsichord": {
+  "file": "img_harpsichord.jpg",
+  "title": "File:Harpsichord MET DT684a.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Harpsichord_MET_DT684a.jpg",
+  "author": "Creator:Jan Couchet the Elder",
+  "license": "CC0"
+ },
+ "cristofori_piano": {
+  "file": "img_cristofori_piano.jpg",
+  "title": "File:Grand Piano MET mi89.4.1219.AV1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Grand_Piano_MET_mi89.4.1219.AV1.jpg",
+  "author": "Bartolomeo Cristofori",
+  "license": "CC0"
+ },
+ "schubert": {
+  "file": "img_schubert.jpg",
+  "title": "File:Franz Schubert by Wilhelm August Rieder 1875.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Franz_Schubert_by_Wilhelm_August_Rieder_1875.jpg",
+  "author": "Wilhelm August Rieder",
+  "license": "Public domain"
+ },
+ "scarlatti": {
+  "file": "img_scarlatti.jpg",
+  "title": "File:Domenico Scarlatti.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Retrato_de_Domenico_Scarlatti.jpg",
+  "author": "Domingo Antonio Velasco",
+  "license": "Public domain"
+ },
+ "rameau": {
+  "file": "img_rameau.jpg",
+  "title": "File:Attribué à Joseph Aved, Portrait de Jean-Philippe Rameau (vers 1728) - 001.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Attribu%C3%A9_%C3%A0_Joseph_Aved,_Portrait_de_Jean-Philippe_Rameau_(vers_1728)_-_001.jpg",
+  "author": "Attributed to Joseph Aved / Formerly attributed to Jean-Baptiste-Siméon Chardin",
+  "license": "Public domain"
+ },
+ "kuhlau": {
+  "file": "img_kuhlau.jpg",
+  "title": "File:Fr. Kuhlau - Em. Baerentzen ft - btv1b84215472.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Fr._Kuhlau_-_Em._Baerentzen_ft_-_btv1b84215472.jpg",
+  "author": "Baerentzen, Emilius Ditlev (1799-1868). Lithographe",
+  "license": "Public domain"
+ },
+ "clementi": {
+  "file": "img_clementi.jpg",
+  "title": "File:Muzio Clementi.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Muzio_Clementi.jpg",
+  "author": "Aleksander Orłowski",
+  "license": "Public domain"
+ },
+ "scriabin": {
+  "file": "img_scriabin.jpg",
+  "title": "File:Alexander Scriabin (by Alexander Mozer).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Alexander_Scriabin_(by_Alexander_Mozer).jpg",
+  "author": "Александр Эдмундович Мозер (1870-1958)",
+  "license": "Public domain"
+ },
+ "albeniz": {
+  "file": "img_albeniz.jpg",
+  "title": "File:Albeniz au piano 1888.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Albeniz_au_piano_1888.jpg",
+  "author": "Darío de Regoyos",
+  "license": "Public domain"
+ },
+ "bizet": {
+  "file": "img_bizet.jpg",
+  "title": "File:Georges bizet.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Georges_bizet.jpg",
+  "author": "Étienne Carjat",
+  "license": "Public domain"
+ },
+ "strauss": {
+  "file": "img_strauss.jpg",
+  "title": "File:Ifj Johann Strauss Pesti Hirlap Vasarnapja 1930 Nr50.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ifj_Johann_Strauss_Pesti_Hirlap_Vasarnapja_1930_Nr50.jpg",
+  "author": "Unknown authorUnknown author",
+  "license": "Public domain"
+ },
+ "mozart_child": {
+  "file": "img_mozart_child.jpg",
+  "title": "File:Louis Carrogis dit Carmontelle - Portrait de Wolfgang Amadeus Mozart (Salzbourg, 1756-Vienne, 1791) jouant à Paris avec son père Jean... - Google Art Project.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Louis_Carrogis_dit_Carmontelle_-_Portrait_de_Wolfgang_Amadeus_Mozart_(Salzbourg,_1756-Vienne,_1791)_jouant_%C3%A0_Paris_avec_son_p%C3%A8re_Jean..._-_Google_Art_Project.jpg",
+  "author": "Louis Carrogis Carmontelle",
+  "license": "Public domain"
+ },
+ "liszt_piano": {
+  "file": "img_liszt_piano.jpg",
+  "title": "File:1840 Danhauser Liszt am Flügel anagoria.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:1840_Danhauser_Liszt_am_Fl%C3%BCgel_anagoria.JPG",
+  "author": "Josef Danhauser",
+  "license": "Public domain"
+ },
+ "schubertiade": {
+  "file": "img_schubertiade.jpg",
+  "title": "File:Julius Schmid Schubertiade.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Julius_Schmid_Schubertiade.jpg",
+  "author": "Julius Schmid",
+  "license": "Public domain"
+ },
+ "bach_thomaskirche": {
+  "file": "img_bach_thomaskirche.jpg",
+  "title": "File:Thomaskirche und -schule 1723.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Thomaskirche_und_-schule_1723.jpg",
+  "author": "Johann Gottfried Krügner",
+  "license": "Public domain"
+ },
+ "beethoven_hornemann": {
+  "file": "img_beethoven_hornemann.jpg",
+  "title": "File:Beethoven Hornemann.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Beethoven_Hornemann.jpg",
+  "author": "Christian Horneman",
+  "license": "Public domain"
+ },
+ "schumanns": {
+  "file": "img_schumanns.jpg",
+  "title": "File:E Kaiser - Robert + Clara Schumann (Litho 1847).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:E_Kaiser_-_Robert_%2B_Clara_Schumann_(Litho_1847).jpg",
+  "author": "Eduard Kaiser",
+  "license": "Public domain"
+ },
+ "maple_leaf_cover": {
+  "file": "img_maple_leaf_cover.jpg",
+  "title": "File:MapleLeafSedaliaPrinting99.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:MapleLeafSedaliaPrinting99.jpg",
+  "author": "Scott Joplin",
+  "license": "Public domain"
+ },
+ "impression_sunrise": {
+  "file": "img_impression_sunrise.jpg",
+  "title": "File:Monet - Impression, Sunrise.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
+  "author": "Claude Monet",
+  "license": "Public domain"
+ },
+ "tchaikovsky_young": {
+  "file": "img_tchaikovsky_young.jpg",
+  "title": "File:Pyotr Tchaikovsky с. 1870.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pyotr_Tchaikovsky_%D1%81._1870.jpg",
+  "author": "Unknown authorUnknown author",
+  "license": "Public domain"
+ },
+ "chopin_young": {
+  "file": "img_chopin_young.jpg",
+  "title": "File:Chopin, by Wodzinska.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Chopin,_by_Wodzinska.JPG",
+  "author": "Maria Wodzińska",
+  "license": "Public domain"
+ },
+ "mozart": {
+  "file": "img_mozart.jpg",
+  "title": "File:Mozart Portrait Croce.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mozart_Portrait_Croce.jpg",
+  "author": "Possibly Johann Nepomuk della Croce",
+  "license": "Public domain"
+ }
+}

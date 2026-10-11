@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Keyscape - Google Play Deployment Guide</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  :root {
+    --ebony:#16100C; --walnut:#2A170D; --mahogany:#4A2416; --chestnut:#6B3C21; --caramel:#A26B3E;
+    --tan:#C99C6D; --honey:#D4A876; --sand:#DCC4A3; --parchment:#F0DFC0; --ivory:#FBF4E4; --brass:#C08A3E;
+    --green:#4E7A3A; --red:#9B2C2C; --blue:#34465A;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", Roboto, Arial, sans-serif; color: var(--walnut); font-size: 10.6pt; line-height: 1.5; margin: 0; }
+  h1, h2, h3, .serif { font-family: Georgia, "Times New Roman", serif; color: var(--mahogany); }
+  h1 { font-size: 24pt; margin: 0 0 6px; }
+  h2 { font-size: 16pt; margin: 18px 0 6px; border-bottom: 2px solid var(--sand); padding-bottom: 4px; }
+  h3 { font-size: 12.5pt; margin: 14px 0 4px; color: var(--chestnut); }
+  p { margin: 5px 0 7px; }
+  ul, ol { margin: 4px 0 8px 0; padding-left: 20px; }
+  li { margin: 2px 0; }
+  code, .mono { font-family: Consolas, "Courier New", monospace; font-size: 9.4pt; background: #f3e7cf; padding: 1px 4px; border-radius: 3px; }
+  pre { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: var(--walnut); color: var(--parchment); padding: 10px 12px; border-radius: 8px; white-space: pre-wrap; margin: 6px 0 10px; }
+  .page { page-break-before: always; }
+  .avoid { page-break-inside: avoid; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 9.6pt; }
+  th { background: var(--mahogany); color: var(--ivory); text-align: left; padding: 6px 8px; font-weight: 600; }
+  td { border-bottom: 1px solid var(--sand); padding: 5px 8px; vertical-align: top; }
+  tr:nth-child(even) td { background: #fbf4e4; }
+  .callout { border-radius: 10px; padding: 9px 12px 9px 44px; margin: 8px 0 10px; position: relative; page-break-inside: avoid; }
+  .callout::before { position: absolute; left: 12px; top: 8px; font-size: 16pt; line-height: 1; }
+  .tip { background: #eef3e6; border-left: 5px solid var(--green); }
+  .tip::before { content: "✓"; color: var(--green); }
+  .warn { background: #f8e9e6; border-left: 5px solid var(--red); }
+  .warn::before { content: "!"; color: var(--red); font-weight: 900; left: 18px; }
+  .info { background: #f3e7cf; border-left: 5px solid var(--brass); }
+  .info::before { content: "i"; color: var(--brass); font-family: Georgia; font-weight: 700; left: 18px; }
+  .step { display: flex; gap: 12px; align-items: flex-start; margin: 8px 0; page-break-inside: avoid; }
+  .num { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--brass); color: var(--walnut); font-weight: 800; display: flex; align-items: center; justify-content: center; font-family: Georgia; }
+  .step > div:last-child { flex: 1; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 8.6pt; font-weight: 600; background: var(--parchment); color: var(--chestnut); margin-right: 4px; }
+  .badge.time { background: #e3ecf3; color: var(--blue); }
+  .badge.cost { background: #eef3e6; color: var(--green); }
+  .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .section-head .big { font-family: Georgia; font-size: 30pt; color: var(--brass); font-weight: 700; line-height: 1; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  .card { border: 1px solid var(--sand); border-radius: 10px; padding: 10px 12px; background: #fffaf0; page-break-inside: avoid; }
+  .check { list-style: none; padding-left: 0; }
+  .check li { padding-left: 24px; position: relative; margin: 4px 0; }
+  .check li::before { content: ""; position: absolute; left: 0; top: 3px; width: 13px; height: 13px; border: 1.6px solid var(--chestnut); border-radius: 3px; background: white; }
+  .done li::before { content: "✓"; color: white; background: var(--green); border-color: var(--green); font-size: 9pt; text-align: center; line-height: 13px; font-weight: 800; }
+  .shots { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+  .shots img { border: 1px solid var(--sand); border-radius: 6px; }
+  .small { font-size: 9pt; color: #6b4e36; }
+  .cover { height: 263mm; position: relative; color: var(--parchment); border-radius: 0; padding: 0; overflow: hidden;
+    background: linear-gradient(180deg, #5a3420 0%, #3a1d10 55%, #1c0f08 100%); }
+  .cover .grain { position: absolute; inset: 0; opacity: .35; }
+  .cover .inner { position: relative; padding: 46mm 18mm 0; }
+  .cover h1 { color: var(--parchment); font-size: 34pt; line-height: 1.15; margin-top: 18px; }
+  .cover .sub { font-family: Georgia; font-size: 15pt; color: var(--honey); }
+  .cover .foot { position: absolute; bottom: 16mm; left: 18mm; right: 18mm; font-size: 10pt; color: var(--sand); border-top: 1px solid rgba(240,223,192,.3); padding-top: 8px; }
+  .toc { columns: 2; column-gap: 24px; }
+  .toc div { break-inside: avoid; padding: 3px 0; border-bottom: 1px dotted var(--sand); }
+  .toc b { color: var(--brass); font-family: Georgia; margin-right: 6px; }
+  svg text { font-family: "Segoe UI", Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<section class="cover">
+  <svg class="grain" width="100%" height="100%" viewBox="0 0 800 1100" preserveAspectRatio="none">
+    <g fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1.2">
+      <path d="M0 80 C200 60 400 110 800 70"/><path d="M0 180 C250 200 520 150 800 190"/><path d="M0 300 C220 280 480 330 800 290"/>
+      <path d="M0 420 C260 440 560 390 800 430"/><path d="M0 560 C200 540 460 600 800 550"/><path d="M0 690 C300 710 540 660 800 700"/>
+      <path d="M0 820 C230 800 500 850 800 810"/><path d="M0 960 C260 980 560 930 800 970"/>
+    </g>
+    <g fill="none" stroke="#f3d7a8" stroke-opacity=".18" stroke-width="1">
+      <path d="M0 130 C240 150 520 100 800 140"/><path d="M0 360 C200 340 470 390 800 350"/><path d="M0 620 C280 640 520 590 800 630"/><path d="M0 900 C240 880 520 930 800 890"/>
+    </g>
+  </svg>
+  <div class="inner">
+    <img src="../logo-final.png" width="170" style="border-radius:22px">
+    <h1>Publishing Keyscape<br>on Google Play</h1>
+    <div class="sub">A complete step-by-step guide for first-time developers -<br>from the US$25 account to your app going live</div>
+    <p style="margin-top:28px; max-width: 135mm; color: var(--sand);">
+      Everything you need: what has already been prepared in your project, every screen you will see in the Play Console,
+      what to type in each field, the mandatory 14-day testing period, the realistic timeline, the costs, and the rules to keep in mind
+      so your app is approved and stays on the store.
+    </p>
+  </div>
+  <div class="foot">Keyscape 1.4.5 · package <b>com.keyscape.app</b> · Updated 11 October 2026 · Google's screens and rules change from time to time - where this guide and the Play Console differ, the Play Console wins.</div>
+</section>
+
+<!-- ============================== CONTENTS + AT A GLANCE ============================== -->
+<section class="page">
+  <h1>Contents</h1>
+  <div class="toc">
+    <div><b>0</b>At a glance</div>
+    <div><b>1</b>The big picture (diagram)</div>
+    <div><b>2</b>Timeline - how long it really takes</div>
+    <div><b>3</b>What is already done in your project</div>
+    <div><b>4</b>Step 1 - Create your developer account</div>
+    <div><b>5</b>Step 2 - Protect your upload key</div>
+    <div><b>6</b>Step 3 - Build the app bundle (.aab)</div>
+    <div><b>7</b>Step 4 - Publish the privacy policy online</div>
+    <div><b>8</b>Step 5 - Create the app in Play Console</div>
+    <div><b>9</b>Step 6 - Store listing</div>
+    <div><b>10</b>Step 7 - App content declarations</div>
+    <div><b>11</b>Step 8 - Internal testing</div>
+    <div><b>12</b>Step 9 - Closed test: 12 testers × 14 days</div>
+    <div><b>13</b>Step 10 - Production access &amp; launch</div>
+    <div><b>14</b>After launch: updates &amp; upkeep</div>
+    <div><b>15</b>Rules to keep in mind</div>
+    <div><b>16</b>Troubleshooting &amp; FAQ</div>
+    <div><b>17</b>Master checklist</div>
+    <div><b>18</b>Where everything is in your project</div>
+  </div>
+
+  <h2>0 · At a glance</h2>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">What it costs</h3>
+      <ul>
+        <li><b>US$25</b> one-time Google Play developer registration fee (pay by card).</li>
+        <li><b>Free</b> hosting for your privacy policy - GitHub Pages from your Keyscape repository.</li>
+        <li>Optional: a real Android phone or tablet for testing (you probably already have one).</li>
+        <li>No yearly fee. Google takes 15% of sales only if you ever charge money - Keyscape is free, so nothing.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">How long it takes</h3>
+      <ul>
+        <li><b>Your active work:</b> about 4-6 hours spread over the weeks.</li>
+        <li><b>Calendar time:</b> typically <b>3 to 5 weeks</b> for a brand-new personal account, mainly because Google requires a <b>14-day closed test with at least 12 testers</b> before you may publish to everyone.</li>
+        <li>Each Google review: usually hours to a few days; occasionally up to 7 days or longer.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">What you upload</h3>
+      <ul>
+        <li><span class="mono">dist/Keyscape-1.4.5-play-store.aab</span> - the app bundle (already built and signed).</li>
+        <li>Graphics from <span class="mono">docs/play-store/</span> (icon, feature graphic, 8 phone and 8 tablet screenshots).</li>
+        <li>Texts from <span class="mono">docs/play-store/listing.md</span> (copy and paste).</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">What you need ready</h3>
+      <ul>
+        <li>A Google account you will keep for years (ideally a dedicated one, e.g. <i>keyscape.dev@gmail.com</i>).</li>
+        <li>A government photo ID (passport, Aadhaar, driving licence…) for identity verification.</li>
+        <li>A phone number and a contact email.</li>
+        <li>12 or more friends or family with an Android phone who will install your test version.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BIG PICTURE ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">1</span><h1>The big picture</h1></div>
+  <p>Publishing happens in four phases. Phases 1 and 2 are setup you do once; phase 3 is the mandatory testing period for new personal accounts; phase 4 is the public launch.</p>
+  <svg width="100%" viewBox="0 0 720 560" class="avoid">
+    <defs>
+      <marker id="ar" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6B3C21"/></marker>
+    </defs>
+    <!-- phase bands -->
+    <rect x="0" y="0" width="720" height="118" rx="12" fill="#F3E7CF"/>
+    <rect x="0" y="130" width="720" height="118" rx="12" fill="#EFE1C5"/>
+    <rect x="0" y="260" width="720" height="150" rx="12" fill="#E8F0E2"/>
+    <rect x="0" y="422" width="720" height="130" rx="12" fill="#E3ECF3"/>
+    <g font-size="12" font-weight="700" fill="#4A2416" text-anchor="end">
+      <text x="706" y="22">PHASE 1 · ACCOUNT (once)</text>
+      <text x="706" y="152">PHASE 2 · SET UP THE APP (once)</text>
+      <text x="706" y="282" fill="#3E5F2E">PHASE 3 · TESTING (mandatory for new personal accounts)</text>
+      <text x="706" y="444" fill="#2B3D52">PHASE 4 · LAUNCH</text>
+    </g>
+    <g font-size="11.5" fill="#2A170D">
+      <!-- phase 1 -->
+      <rect x="20" y="36" width="150" height="62" rx="10" fill="#fff" stroke="#C08A3E" stroke-width="2"/>
+      <text x="95" y="60" text-anchor="middle" font-weight="700">Create account</text><text x="95" y="78" text-anchor="middle">pay US$25</text>
+      <rect x="200" y="36" width="150" height="62" rx="10" fill="#fff" stroke="#C08A3E" stroke-width="2"/>
+      <text x="275" y="60" text-anchor="middle" font-weight="700">Verify identity</text><text x="275" y="78" text-anchor="middle">ID + phone + device</text>
+      <rect x="380" y="36" width="150" height="62" rx="10" fill="#fff" stroke="#C08A3E" stroke-width="2"/>
+      <text x="455" y="60" text-anchor="middle" font-weight="700">Host privacy</text><text x="455" y="78" text-anchor="middle">policy online</text>
+      <rect x="560" y="36" width="145" height="62" rx="10" fill="#fff" stroke="#C08A3E" stroke-width="2"/>
+      <text x="632" y="60" text-anchor="middle" font-weight="700">Back up</text><text x="632" y="78" text-anchor="middle">upload key</text>
+      <line x1="170" y1="67" x2="198" y2="67" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="350" y1="67" x2="378" y2="67" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="530" y1="67" x2="558" y2="67" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- phase 2 -->
+      <rect x="20" y="166" width="150" height="62" rx="10" fill="#fff" stroke="#A26B3E" stroke-width="2"/>
+      <text x="95" y="190" text-anchor="middle" font-weight="700">Create app</text><text x="95" y="208" text-anchor="middle">name, free, declarations</text>
+      <rect x="200" y="166" width="150" height="62" rx="10" fill="#fff" stroke="#A26B3E" stroke-width="2"/>
+      <text x="275" y="190" text-anchor="middle" font-weight="700">Store listing</text><text x="275" y="208" text-anchor="middle">texts + graphics</text>
+      <rect x="380" y="166" width="150" height="62" rx="10" fill="#fff" stroke="#A26B3E" stroke-width="2"/>
+      <text x="455" y="190" text-anchor="middle" font-weight="700">App content</text><text x="455" y="208" text-anchor="middle">rating, data safety…</text>
+      <rect x="560" y="166" width="145" height="62" rx="10" fill="#fff" stroke="#A26B3E" stroke-width="2"/>
+      <text x="632" y="190" text-anchor="middle" font-weight="700">Internal test</text><text x="632" y="208" text-anchor="middle">upload .aab, try it</text>
+      <line x1="170" y1="197" x2="198" y2="197" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="350" y1="197" x2="378" y2="197" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="530" y1="197" x2="558" y2="197" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- phase 3 -->
+      <rect x="20" y="300" width="200" height="88" rx="10" fill="#fff" stroke="#4E7A3A" stroke-width="2"/>
+      <text x="120" y="326" text-anchor="middle" font-weight="700">Closed test release</text><text x="120" y="344" text-anchor="middle">invite 12+ testers</text><text x="120" y="362" text-anchor="middle">(Google Group or emails)</text>
+      <rect x="260" y="300" width="200" height="88" rx="10" fill="#fff" stroke="#4E7A3A" stroke-width="3"/>
+      <text x="360" y="326" text-anchor="middle" font-weight="700">14 continuous days</text><text x="360" y="344" text-anchor="middle">≥12 testers stay opted in</text><text x="360" y="362" text-anchor="middle">collect feedback, fix bugs</text>
+      <rect x="500" y="300" width="205" height="88" rx="10" fill="#fff" stroke="#4E7A3A" stroke-width="2"/>
+      <text x="602" y="326" text-anchor="middle" font-weight="700">Apply for</text><text x="602" y="344" text-anchor="middle">production access</text><text x="602" y="362" text-anchor="middle">(short questionnaire)</text>
+      <line x1="220" y1="344" x2="258" y2="344" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="460" y1="344" x2="498" y2="344" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- phase 4 -->
+      <rect x="20" y="462" width="200" height="70" rx="10" fill="#fff" stroke="#34465A" stroke-width="2"/>
+      <text x="120" y="490" text-anchor="middle" font-weight="700">Production release</text><text x="120" y="508" text-anchor="middle">upload / promote build</text>
+      <rect x="260" y="462" width="200" height="70" rx="10" fill="#fff" stroke="#34465A" stroke-width="2"/>
+      <text x="360" y="490" text-anchor="middle" font-weight="700">Google review</text><text x="360" y="508" text-anchor="middle">hours to ~7 days</text>
+      <rect x="500" y="462" width="205" height="70" rx="10" fill="#34465A"/>
+      <text x="602" y="490" text-anchor="middle" font-weight="700" fill="#fff">LIVE on Google Play</text><text x="602" y="508" text-anchor="middle" fill="#dbe6ef">staged rollout → 100%</text>
+      <line x1="220" y1="497" x2="258" y2="497" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <line x1="460" y1="497" x2="498" y2="497" stroke="#6B3C21" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- connectors between phases -->
+      <path d="M632 98 C632 120 95 120 95 164" fill="none" stroke="#6B3C21" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+      <path d="M632 228 C632 270 120 260 120 298" fill="none" stroke="#6B3C21" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+      <path d="M602 388 C602 430 120 420 120 460" fill="none" stroke="#6B3C21" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+    </g>
+  </svg>
+  <div class="callout info">Words you will meet: <b>Play Console</b> = Google's website for publishing (play.google.com/console). <b>AAB</b> (Android App Bundle) = the file you upload. <b>Track</b> = a release channel (internal, closed, open, production). <b>Rollout</b> = making a release available to users.</div>
+  <div class="callout info">If you register an <b>organization</b> account (a company with a D-U-N-S number), Google does not require the 14-day closed test - you can go from Phase 2 straight to Phase 4. For an individual, the personal account is simpler and the testing period is a good quality check anyway.</div>
+</section>
+
+<!-- ============================== TIMELINE ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">2</span><h1>Timeline - how long it really takes</h1></div>
+  <p>A realistic plan for a new <b>personal</b> developer account. Bars show calendar time; the numbers in brackets are your own hands-on time.</p>
+  <svg width="100%" viewBox="0 0 720 420" class="avoid">
+    <g font-size="11" fill="#2A170D">
+      <!-- grid -->
+      <g stroke="#DCC4A3" stroke-width="1">
+        <line x1="200" y1="30" x2="200" y2="395"/><line x1="290" y1="30" x2="290" y2="395"/><line x1="380" y1="30" x2="380" y2="395"/>
+        <line x1="470" y1="30" x2="470" y2="395"/><line x1="560" y1="30" x2="560" y2="395"/><line x1="650" y1="30" x2="650" y2="395"/>
+      </g>
+      <g font-weight="700" fill="#6B3C21" text-anchor="middle">
+        <text x="245" y="22">Week 1</text><text x="335" y="22">Week 2</text><text x="425" y="22">Week 3</text><text x="515" y="22">Week 4</text><text x="605" y="22">Week 5</text><text x="685" y="22">Week 6</text>
+      </g>
+      <!-- rows -->
+      <text x="0" y="56">Account + pay US$25 (30 min)</text><rect x="200" y="44" width="14" height="16" rx="4" fill="#C08A3E"/>
+      <text x="0" y="86">Identity &amp; device verification</text><rect x="205" y="74" width="60" height="16" rx="4" fill="#E2B56A"/><text x="270" y="86" class="small" fill="#6b4e36">1-3 days (can be longer)</text>
+      <text x="0" y="116">Privacy policy online (20 min)</text><rect x="214" y="104" width="12" height="16" rx="4" fill="#C08A3E"/>
+      <text x="0" y="146">Create app + listing (2 h)</text><rect x="265" y="134" width="22" height="16" rx="4" fill="#A26B3E"/>
+      <text x="0" y="176">App content forms (45 min)</text><rect x="275" y="164" width="14" height="16" rx="4" fill="#A26B3E"/>
+      <text x="0" y="206">Internal test (30 min)</text><rect x="280" y="194" width="20" height="16" rx="4" fill="#6B3C21"/>
+      <text x="0" y="236">Closed test review</text><rect x="295" y="224" width="25" height="16" rx="4" fill="#9DBB84"/><text x="325" y="236" class="small" fill="#6b4e36">~1-3 days</text>
+      <text x="0" y="266" font-weight="700" fill="#3E5F2E">14-day closed test (12+ testers)</text><rect x="320" y="254" width="180" height="16" rx="4" fill="#4E7A3A"/><text x="410" y="266" text-anchor="middle" fill="#fff" font-weight="700">14 days minimum</text>
+      <text x="0" y="296">Apply for production access</text><rect x="500" y="284" width="12" height="16" rx="4" fill="#34465A"/>
+      <text x="0" y="326">Production access review</text><rect x="512" y="314" width="70" height="16" rx="4" fill="#8EA3B8"/><text x="587" y="326" class="small" fill="#6b4e36">≤ ~7 days</text>
+      <text x="0" y="356">Production release review</text><rect x="585" y="344" width="45" height="16" rx="4" fill="#8EA3B8"/>
+      <text x="0" y="386" font-weight="700" fill="#34465A">LIVE 🎉</text><circle cx="640" cy="381" r="9" fill="#34465A"/>
+    </g>
+  </svg>
+  <table class="avoid">
+    <tr><th style="width:32%">Milestone</th><th>Typical duration</th><th>What can slow it down</th></tr>
+    <tr><td>Identity verification</td><td>Minutes to 3 days</td><td>Blurry ID photo, name not matching the payment card, address mismatch.</td></tr>
+    <tr><td>Device verification (personal accounts)</td><td>Minutes</td><td>You need the <b>Play Console app</b> on an Android device signed in with the same account.</td></tr>
+    <tr><td>Each app review</td><td>Hours to ~7 days</td><td>First reviews of a new account are slowest; policy questions.</td></tr>
+    <tr><td>Closed test</td><td><b>14 days, can't be shortened</b></td><td>Testers dropping out - the clock needs 12 opted-in testers continuously.</td></tr>
+    <tr><td>Production access application</td><td>Usually ≤ 7 days</td><td>Vague answers about your testing. Be specific (see Step 10).</td></tr>
+  </table>
+</section>
+
+<!-- ============================== DONE ALREADY ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">3</span><h1>What is already done in your project</h1></div>
+  <p>Google checks the app file automatically when you upload it. These technical requirements have all been prepared for you:</p>
+  <ul class="check done">
+    <li><b>Android App Bundle</b> built in release mode: <span class="mono">dist/Keyscape-1.4.5-play-store.aab</span> (≈35 MB; Google's limit is 200 MB). Checked on 11 October 2026: signature verified, all tests pass.</li>
+    <li><b>Signed with your own upload key</b> (RSA-4096, valid ~27 years) - <span class="mono">keystore/pianoquest-upload.jks</span>. Release builds pick it up automatically through <span class="mono">keystore.properties</span>. (The certificate's internal name is "PianoQuest", the project's working title - users never see it, because Google re-signs the app.)</li>
+    <li><b>Target API level 36 (Android 16)</b> - meets Google's current rule for new apps; minimum Android 8.0 (API 26) so it runs on ~97% of active devices.</li>
+    <li><b>16 KB memory-page compatible</b> - the only native library (from AndroidX) is 16 KB aligned, as Google requires for apps targeting Android 15+.</li>
+    <li><b>No permissions requested</b> - no internet, location, contacts, storage or microphone access (verified in the built app: the only entry is an Android-internal permission that every modern app has). This makes the Data Safety form trivial and reviews smooth.</li>
+    <li><b>Package name is free</b> - on 11 October 2026 no app on Google Play used <span class="mono">com.keyscape.app</span>.</li>
+    <li><b>Code shrinking/obfuscation (R8)</b> enabled; <b>debuggable</b> turned off; version <b>1.4.5 (versionCode 13)</b>.</li>
+    <li><b>Privacy policy</b> written: <span class="mono">docs/privacy-policy.html</span> (you only need to put it online - Step 4). An in-app copy is under <i>More → About, privacy &amp; licences</i>.</li>
+    <li><b>Licences and credits</b> for all music, samples, pictures and fonts are shown in the app (required by the Creative Commons licences).</li>
+    <li><b>Store graphics</b> in the right sizes and formats (24-bit PNG without transparency, as Google requires): app icon, feature graphic, 8 phone and 8 tablet screenshots in <span class="mono">docs/play-store/</span>.</li>
+    <li><b>Promo video</b>: <span class="mono">promo/out/keyscape-promo-sample2-1080p60.mp4</span> (2:16, 1080p60) with a ready YouTube title, description and thumbnail.</li>
+    <li><b>Source code on GitHub</b>: <span class="mono">github.com/Abhijay-Nagal/Keyscape</span> (the keystore and passwords are deliberately not in it).</li>
+    <li><b>Store texts and form answers</b>: <span class="mono">docs/play-store/listing.md</span>.</li>
+  </ul>
+  <h3>Your store graphics (already made)</h3>
+  <div class="shots">
+    <div><img src="../play-store/icon-512.png" width="80"><div class="small">App icon 512×512</div></div>
+    <div><img src="../play-store/feature-graphic-1024x500.png" width="190"><div class="small">Feature graphic 1024×500</div></div>
+    <div><img src="../play-store/phone-1-player.png" width="200"><div class="small">Screenshot 1920×1080</div></div>
+  </div>
+  <div class="callout warn"><b>Before you start, pick your final package name.</b> It is <span class="mono">com.keyscape.app</span>. Once you upload the first build, the package name can <b>never</b> be changed on Google Play. If you'd rather use something like <span class="mono">com.yourname.keyscape</span>, change <span class="mono">applicationId</span> in <span class="mono">composeApp/build.gradle.kts</span> and rebuild (Step 3) before uploading.</div>
+</section>
+
+<!-- ============================== STEP 1 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">4</span><h1>Step 1 - Create your developer account</h1></div>
+  <p><span class="badge cost">US$25 one-time</span><span class="badge time">30 min + 1-3 days verification</span></p>
+  <h3>Personal or organization?</h3>
+  <table>
+    <tr><th></th><th>Personal account (recommended for you)</th><th>Organization account</th></tr>
+    <tr><td><b>Who</b></td><td>An individual</td><td>A registered company, NGO, school…</td></tr>
+    <tr><td><b>Extra documents</b></td><td>Government photo ID, phone, email</td><td><b>D-U-N-S number</b> (free from Dun &amp; Bradstreet, can take up to ~30 days), company website, official documents</td></tr>
+    <tr><td><b>14-day closed test</b></td><td><b>Required</b> (12+ testers)</td><td>Not required</td></tr>
+    <tr><td><b>Public developer name</b></td><td>Your name or a chosen developer name</td><td>Company name</td></tr>
+  </table>
+  <h3>Do this</h3>
+  <div class="step"><div class="num">1</div><div>Create (or choose) a Google account you'll keep long-term. A dedicated account like <i>keyscape.studio@gmail.com</i> keeps things tidy. Turn on <b>2-Step Verification</b> (Google requires it for Play Console).</div></div>
+  <div class="step"><div class="num">2</div><div>Go to <b>play.google.com/console/signup</b>. Choose <b>"Yourself"</b> (personal account).</div></div>
+  <div class="step"><div class="num">3</div><div>Enter your <b>developer name</b> - shown publicly under your app (e.g. "Keyscape Studio" or your own name). Enter a <b>contact email</b> and <b>phone</b> for Google, and a <b>public contact email</b> for users (Google shows this on the store page).</div></div>
+  <div class="step"><div class="num">4</div><div>Answer the short questions about your experience and plans (e.g. "1 app", "free", "education"). Accept the <b>Developer Distribution Agreement</b> and pay the <b>US$25</b> fee with a credit/debit card.</div></div>
+  <div class="step"><div class="num">5</div><div><b>Verify your identity</b>: upload a clear photo of a government ID. The name must match the one you entered (and ideally your payment card). Verify your phone number and email with the codes Google sends.</div></div>
+  <div class="step"><div class="num">6</div><div><b>Verify an Android device</b>: install the <b>Google Play Console</b> app from the Play Store on your Android phone, sign in with the same account, and follow the prompt. (Required for new personal accounts.)</div></div>
+  <div class="callout tip">You'll get an email when verification completes. Meanwhile you can already prepare Steps 2-4 - they don't need the account.</div>
+  <div class="callout warn">Use your <b>real legal name and details</b>. Fake or mismatching information is the most common reason accounts get suspended - and a suspended account can't simply be re-created.</div>
+
+</section>
+
+<!-- ============================== STEP 2 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">5</span><h1>Step 2 - Protect your upload key</h1></div>
+  <p><span class="badge time">10 min</span> Every build you upload must be signed with the same <b>upload key</b>. Yours is ready in the <span class="mono">keystore</span> folder of the project.</p>
+  <svg width="100%" viewBox="0 0 720 150" class="avoid">
+    <g font-size="11.5" fill="#2A170D">
+      <rect x="10" y="20" width="200" height="100" rx="12" fill="#FBF4E4" stroke="#C08A3E" stroke-width="2"/>
+      <text x="110" y="50" text-anchor="middle" font-weight="700">Your computer</text><text x="110" y="72" text-anchor="middle">signs the .aab with the</text><text x="110" y="90" text-anchor="middle" font-weight="700">UPLOAD key</text>
+      <rect x="260" y="20" width="200" height="100" rx="12" fill="#FBF4E4" stroke="#C08A3E" stroke-width="2"/>
+      <text x="360" y="50" text-anchor="middle" font-weight="700">Google Play</text><text x="360" y="72" text-anchor="middle">checks upload key, then</text><text x="360" y="90" text-anchor="middle">re-signs with the</text><text x="360" y="108" text-anchor="middle" font-weight="700">APP SIGNING key</text>
+      <rect x="510" y="20" width="200" height="100" rx="12" fill="#FBF4E4" stroke="#C08A3E" stroke-width="2"/>
+      <text x="610" y="50" text-anchor="middle" font-weight="700">Users' phones</text><text x="610" y="72" text-anchor="middle">install the version signed</text><text x="610" y="90" text-anchor="middle">by Google (kept safe by Google)</text>
+      <path d="M214 70 h40" stroke="#6B3C21" stroke-width="2.5"/><path d="M254 70 l-9 -6 v12z" fill="#6B3C21"/>
+      <path d="M464 70 h40" stroke="#6B3C21" stroke-width="2.5"/><path d="M504 70 l-9 -6 v12z" fill="#6B3C21"/>
+    </g>
+  </svg>
+  <p>This system is called <b>Play App Signing</b> and is mandatory for new apps. Because Google holds the real app-signing key, losing your upload key is <i>recoverable</i> (Google support can reset it), but it costs days of delay - so back it up now.</p>
+  <div class="step"><div class="num">1</div><div>Open <span class="mono">keystore/README-KEEP-SAFE.txt</span> - it contains the key alias and the password.</div></div>
+  <div class="step"><div class="num">2</div><div>Copy the whole <span class="mono">keystore</span> folder <b>and</b> the file <span class="mono">keystore.properties</span> to two safe places: e.g. an encrypted USB drive and a password manager (as attachments) or a private, encrypted cloud folder.</div></div>
+  <div class="step"><div class="num">3</div><div>Save the password in your password manager too.</div></div>
+  <div class="callout warn">Never put the <span class="mono">.jks</span> file or its password on GitHub, in an email or in a chat. They are already excluded from git via <span class="mono">.gitignore</span>. Your project folder lives in OneDrive - that is a backup, but make sure your Microsoft account has 2-step verification on.</div>
+  <div class="callout info">During the first upload, Play Console asks how to set up app signing. Choose the default: <b>"Use Google-generated key"</b> (Play App Signing). Nothing else to configure.</div>
+</section>
+
+<!-- ============================== STEP 3 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">6</span><h1>Step 3 - Build the app bundle (.aab)</h1></div>
+  <p><span class="badge time">5 min</span> The current bundle is already built: <span class="mono">dist/Keyscape-1.4.5-play-store.aab</span>. You only need to rebuild when you change something (package name, code, content).</p>
+  <h3>How to rebuild</h3>
+  <p>Open a terminal (PowerShell) in the project folder and run:</p>
+  <pre>cd C:\Users\HP\OneDrive\Desktop\my_projects\Keyscape
+.\gradlew :composeApp:bundleRelease</pre>
+  <p>The new bundle appears at <span class="mono">composeApp\build\outputs\bundle\release\composeApp-release.aab</span>. It is signed automatically with your upload key (thanks to <span class="mono">keystore.properties</span>).</p>
+  <h3>Every update needs a higher version code</h3>
+  <p>Google refuses a bundle whose <b>versionCode</b> was used before. Before each new upload, open <span class="mono">composeApp/build.gradle.kts</span> and raise both numbers:</p>
+  <pre>defaultConfig {
+    applicationId = "com.keyscape.app"
+    versionCode = 14         // was 13 - always +1
+    versionName = "1.4.6"    // what users see
+}</pre>
+  <p>Also update <span class="mono">packageVersion</span> (same file, Windows builds) and <span class="mono">VERSION</span> in <span class="mono">composeApp/src/commonMain/kotlin/com/pianoquest/app/AppInfo.kt</span> so the About screen matches.</p>
+  <h3>Want to try the release build on your own phone first?</h3>
+  <p>Use the ready-made <span class="mono">dist/Keyscape-1.4.5-android.apk</span> (signed with the same upload key): copy it to the phone and open it (allow "install unknown apps" once). Uninstall it before installing from Google Play later - the Play version is signed by Google's key, so Android treats them as different signatures.</p>
+  <div class="callout warn"><b>Your phone already has this test build</b> (installed over USB while the promo video was made). Before you install Keyscape from the Play Store link in Step 8, <b>uninstall it</b> (long-press the icon → Uninstall), or the Play Store will say it cannot install the app. Uninstalling also clears the practice progress made during testing.</div>
+  <div class="callout tip">Test on a real phone: play a few songs (Note Wait, Listen and Practice modes, all three guide modes), connect your MIDI keyboard, try Free Play with 88 keys, switch dark mode. Fix anything odd before the closed test - testers' first impression matters.</div>
+</section>
+
+<!-- ============================== STEP 4 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">7</span><h1>Step 4 - Publish the privacy policy online</h1></div>
+  <p><span class="badge time">20 min</span><span class="badge cost">free</span> Google requires a <b>public web link</b> to a privacy policy for every app - even apps like Keyscape that collect nothing. Your policy is written: <span class="mono">docs/privacy-policy.html</span>. You just need to host it.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Option A - GitHub Pages (recommended, 2 minutes)</h3>
+      <p class="small">The policy is already in your public repository at <span class="mono">docs/privacy-policy.html</span>.</p>
+      <ol>
+        <li>Open <b>github.com/Abhijay-Nagal/Keyscape</b> → <b>Settings</b> → <b>Pages</b> (left menu).</li>
+        <li>Source: <b>Deploy from a branch</b>. Branch: <b>main</b>, folder: <b>/docs</b>. Click <b>Save</b>.</li>
+        <li>Wait 1-2 minutes, then open <i>https://abhijay-nagal.github.io/Keyscape/privacy-policy.html</i> - you should see "Keyscape - Privacy Policy".</li>
+        <li>That address is your privacy policy URL.</li>
+      </ol>
+      <p class="small">The repository must stay <b>public</b> for free GitHub Pages.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Option B - Google Sites</h3>
+      <ol>
+        <li>Go to <b>sites.google.com</b> → <b>Blank site</b>.</li>
+        <li>Title: "Keyscape Privacy Policy".</li>
+        <li>Open <span class="mono">privacy-policy.html</span> in your browser, select all text, copy, and paste it into the site.</li>
+        <li>Click <b>Publish</b>, choose a web address, make it public.</li>
+        <li>Copy the URL (e.g. <i>sites.google.com/view/keyscape-privacy</i>).</li>
+      </ol>
+    </div>
+  </div>
+  <div class="callout warn">The link must open a normal web page (not a PDF download, not a Google Doc that requires sign-in) and must mention the app name. Keep it online for as long as the app is published.</div>
+  <div class="callout info">The contact email in the policy is <i>nagalabhijay@gmail.com</i>. If you create a dedicated developer email, change it in both <span class="mono">privacy-policy.html</span> and the Play Console.</div>
+</section>
+
+<!-- ============================== STEP 5 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">8</span><h1>Step 5 - Create the app in Play Console</h1></div>
+  <p><span class="badge time">10 min</span> In Play Console click <b>Create app</b> (top right of "All apps").</p>
+  <svg width="100%" viewBox="0 0 720 300" class="avoid">
+    <rect x="0" y="0" width="720" height="300" rx="10" fill="#fff" stroke="#DCC4A3"/>
+    <rect x="0" y="0" width="720" height="34" rx="10" fill="#4A2416"/>
+    <text x="16" y="22" font-size="12.5" fill="#F0DFC0" font-weight="700">Create app  (illustration - the real page may look slightly different)</text>
+    <g font-size="11.5" fill="#2A170D">
+      <text x="24" y="62" font-weight="700">App name</text><rect x="210" y="48" width="300" height="24" rx="5" fill="#FBF4E4" stroke="#C99C6D"/><text x="218" y="64">Keyscape: Learn Piano</text><text x="520" y="64" class="small" fill="#6b4e36">max 30 characters</text>
+      <text x="24" y="102" font-weight="700">Default language</text><rect x="210" y="88" width="300" height="24" rx="5" fill="#FBF4E4" stroke="#C99C6D"/><text x="218" y="104">English (United States) - en-US</text>
+      <text x="24" y="142" font-weight="700">App or game</text><circle cx="218" cy="138" r="7" fill="#6B3C21"/><text x="232" y="142">App</text><circle cx="300" cy="138" r="7" fill="none" stroke="#6B3C21"/><text x="314" y="142">Game</text>
+      <text x="24" y="182" font-weight="700">Free or paid</text><circle cx="218" cy="178" r="7" fill="#6B3C21"/><text x="232" y="182">Free</text><circle cx="300" cy="178" r="7" fill="none" stroke="#6B3C21"/><text x="314" y="182">Paid</text>
+      <text x="24" y="222" font-weight="700">Declarations</text>
+      <rect x="210" y="210" width="14" height="14" rx="3" fill="#4E7A3A"/><text x="232" y="222">Developer Program Policies</text>
+      <rect x="210" y="234" width="14" height="14" rx="3" fill="#4E7A3A"/><text x="232" y="246">US export laws</text>
+      <rect x="560" y="250" width="140" height="34" rx="17" fill="#6B3C21"/><text x="630" y="272" text-anchor="middle" fill="#fff" font-weight="700">Create app</text>
+    </g>
+  </svg>
+  <div class="callout warn"><b>Free is permanent.</b> Once an app is published as free it can never be changed to paid (you could add in-app purchases later). Keyscape is designed as a free app.</div>
+  <div class="callout tip">Check the name isn't already used by a well-known app: search the Play Store for "Keyscape" first. If needed, pick a variant such as "Keyscape - Piano School". The store name can be changed later; the package name cannot.</div>
+  <p>After creating the app you land on the <b>Dashboard</b>. It shows a checklist titled <i>"Set up your app"</i> - Steps 6 and 7 of this guide complete that checklist.</p>
+</section>
+
+<!-- ============================== STEP 6 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">9</span><h1>Step 6 - Store listing</h1></div>
+  <p><span class="badge time">45 min</span> Menu: <b>Grow users → Store presence → Main store listing</b>. Copy the texts from <span class="mono">docs/play-store/listing.md</span>.</p>
+  <table>
+    <tr><th style="width:26%">Field</th><th style="width:38%">Requirement</th><th>Use this file / text</th></tr>
+    <tr><td>App name</td><td>≤ 30 characters</td><td>Keyscape: Learn Piano</td></tr>
+    <tr><td>Short description</td><td>≤ 80 characters</td><td>From listing.md</td></tr>
+    <tr><td>Full description</td><td>≤ 4000 characters</td><td>From listing.md</td></tr>
+    <tr><td>App icon</td><td>512 × 512 PNG, 32-bit, ≤ 1 MB</td><td><span class="mono">icon-512.png</span></td></tr>
+    <tr><td>Feature graphic</td><td>1024 × 500 JPG or 24-bit PNG (no transparency)</td><td><span class="mono">feature-graphic-1024x500.png</span></td></tr>
+    <tr><td>Phone screenshots</td><td>2-8 images, JPG / 24-bit PNG, 320-3840 px, ratio up to 2:1</td><td>The 8 <span class="mono">phone-1-player.png … phone-8-courses.png</span>, in number order (landscape 1920×1080 - the app runs in landscape)</td></tr>
+    <tr><td>7-inch and 10-inch tablet screenshots</td><td>Up to 8 each, 16:9, each side 1080-7680 px (recommended - tablets are shown separately)</td><td>The 8 <span class="mono">tablet-*.png</span> files (the app's real tablet layout) - upload the same 8 to both the 7-inch and 10-inch slots</td></tr>
+    <tr><td>Video</td><td>Optional YouTube link (public or unlisted, ads off, embedding allowed)</td><td>Upload <span class="mono">promo/out/keyscape-promo-sample2-1080p60.mp4</span> to YouTube using <span class="mono">promo/out/youtube-sample2.txt</span>, then paste the link</td></tr>
+  </table>
+  <h3>Also in Store presence</h3>
+  <ul>
+    <li><b>Store settings</b>: Category <b>Education</b>; tags: Music, Education; contact email (required) and optionally a website.</li>
+    <li><b>Countries / regions</b> (under <i>Production → Countries</i>): choose "All countries" or start with a few. Some countries need extra declarations - Play Console will tell you.</li>
+  </ul>
+  <div class="callout warn"><b>Metadata rules:</b> no ALL-CAPS hype, no "best"/"#1"/"free" in the title, no emojis spam, no other brands. <b>Do not mention "Perfect Piano"</b> or pop-artist names / song titles in the listing - Google can reject listings that use other people's trademarks. The provided texts already follow these rules (they only name classical composers, who are in the public domain).</div>
+  <div class="shots"><img src="../play-store/phone-2-setup.png" width="220"><img src="../play-store/phone-1-home.png" width="220"><img src="../play-store/phone-4-lesson.png" width="220"></div>
+</section>
+
+<!-- ============================== STEP 7 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">10</span><h1>Step 7 - App content declarations</h1></div>
+  <p><span class="badge time">45 min</span> Menu: <b>Policy and programs → App content</b>. Each card needs to be completed once. Answers for Keyscape:</p>
+  <table>
+    <tr><th style="width:24%">Declaration</th><th>Answer for Keyscape</th></tr>
+    <tr><td><b>Privacy policy</b></td><td>Paste your URL from Step 4.</td></tr>
+    <tr><td><b>App access</b></td><td>"All functionality is available without special access" (no login).</td></tr>
+    <tr><td><b>Ads</b></td><td>"No, my app does not contain ads".</td></tr>
+    <tr><td><b>Content rating</b></td><td>Start questionnaire → your email → category <b>"Reference, News, or Educational"</b> → answer <b>No</b> to violence, fear, sexuality, profanity, drugs, gambling, user-generated content, user interaction/chat, sharing location, digital purchases. Expected result: <b>Everyone / PEGI 3 / 3+</b>.</td></tr>
+    <tr><td><b>Target audience &amp; content</b></td><td>Select ages <b>13-15, 16-17, 18+</b>. Answer that the app is not designed specifically for children. (Including under-13s is possible but triggers the stricter Families Policy review.)</td></tr>
+    <tr><td><b>News app</b></td><td>No.</td></tr>
+    <tr><td><b>COVID-19 tracing / status apps</b></td><td>Not applicable.</td></tr>
+    <tr><td><b>Data safety</b></td><td>"Does your app collect or share any of the required user data types?" → <b>No</b>. Then save and submit. (True because the app has no internet permission and no analytics - progress stays on the device.)</td></tr>
+    <tr><td><b>Government apps</b></td><td>No.</td></tr>
+    <tr><td><b>Financial features</b></td><td>"My app doesn't provide any financial features".</td></tr>
+    <tr><td><b>Health apps</b></td><td>"My app does not have health features".</td></tr>
+    <tr><td><b>Advertising ID</b></td><td>"No" - the app doesn't use the advertising ID (no ads SDK).</td></tr>
+  </table>
+  <div class="callout info">If a card appears that isn't listed here (Google adds new ones occasionally), read it carefully: Keyscape has no accounts, no ads, no payments, no location and no data collection, so the answer is almost always "No / Not applicable".</div>
+  <div class="callout warn">Answer truthfully. The Data Safety answer becomes the public "Data safety" section of your store page, and Google cross-checks it against the app.</div>
+</section>
+
+<!-- ============================== STEP 8 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">11</span><h1>Step 8 - Internal testing</h1></div>
+  <p><span class="badge time">30 min</span> Internal testing is a private channel for up to 100 people that is available within minutes and usually doesn't need a review. Use it to check the uploaded build on your own phone.</p>
+  <div class="step"><div class="num">1</div><div><b>Test and release → Testing → Internal testing → Create new release.</b></div></div>
+  <div class="step"><div class="num">2</div><div>First time only: accept <b>Play App Signing</b> ("Use Google-generated key").</div></div>
+  <div class="step"><div class="num">3</div><div>Upload <span class="mono">dist/Keyscape-1.4.5-play-store.aab</span>. Release name is filled automatically (1.4.5). Release notes: copy them from <span class="mono">listing.md</span> (section "Release notes").</div></div>
+  <div class="step"><div class="num">4</div><div><b>Testers</b> tab: create an email list with your own Gmail address (and a few friends). Save.</div></div>
+  <div class="step"><div class="num">5</div><div><b>Review release → Start rollout to Internal testing.</b></div></div>
+  <div class="step"><div class="num">6</div><div>Copy the <b>"Join on the web"</b> link from the Testers tab, open it on your phone, accept, and install from the Play Store.</div></div>
+  <div class="callout tip">If Play Console shows <b>warnings</b> (yellow) after upload, read them - most are informational. <b>Errors</b> (red) block the release; see Troubleshooting (section 16).</div>
+  <svg width="100%" viewBox="0 0 720 120" class="avoid">
+    <g font-size="11.5" fill="#2A170D">
+      <rect x="0" y="10" width="160" height="90" rx="10" fill="#F3E7CF"/><text x="80" y="45" text-anchor="middle" font-weight="700">Internal</text><text x="80" y="65" text-anchor="middle">≤100 testers</text><text x="80" y="83" text-anchor="middle">minutes</text>
+      <rect x="185" y="10" width="160" height="90" rx="10" fill="#E8F0E2"/><text x="265" y="45" text-anchor="middle" font-weight="700">Closed</text><text x="265" y="65" text-anchor="middle">invited testers</text><text x="265" y="83" text-anchor="middle">reviewed</text>
+      <rect x="370" y="10" width="160" height="90" rx="10" fill="#E3ECF3"/><text x="450" y="45" text-anchor="middle" font-weight="700">Open (optional)</text><text x="450" y="65" text-anchor="middle">anyone can join</text><text x="450" y="83" text-anchor="middle">public beta</text>
+      <rect x="555" y="10" width="160" height="90" rx="10" fill="#34465A"/><text x="635" y="45" text-anchor="middle" font-weight="700" fill="#fff">Production</text><text x="635" y="65" text-anchor="middle" fill="#dbe6ef">everyone</text><text x="635" y="83" text-anchor="middle" fill="#dbe6ef">reviewed</text>
+    </g>
+  </svg>
+  <p class="small">The four release tracks. A build can be "promoted" from one track to the next without uploading it again.</p>
+</section>
+
+<!-- ============================== STEP 9 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">12</span><h1>Step 9 - Closed test: 12 testers × 14 days</h1></div>
+  <p><span class="badge time">14 days minimum</span> Google requires new personal accounts to run a <b>closed test</b> with <b>at least 12 testers who stay opted in for at least 14 days in a row</b> before production access is unlocked.</p>
+  <h3>Set it up</h3>
+  <div class="step"><div class="num">1</div><div><b>Testing → Closed testing</b> → use the default track ("Alpha") → <b>Create release</b> → choose <b>Add from library</b> and pick the bundle you already uploaded (or upload it again). Add release notes.</div></div>
+  <div class="step"><div class="num">2</div><div><b>Testers</b>: easiest is a free <b>Google Group</b> (groups.google.com → Create group, e.g. <i>keyscape-testers@googlegroups.com</i>, set "Who can join: anyone with the link"). Add the group's email in Play Console. Alternatively add an email list.</div></div>
+  <div class="step"><div class="num">3</div><div>Select countries (all), then <b>Review release → Start rollout to Closed testing</b>. This first closed release is reviewed by Google (usually 1-3 days).</div></div>
+  <div class="step"><div class="num">4</div><div>Send testers <b>both links</b>: the Google Group link (to join) and the <b>opt-in link</b> from the Testers tab. Each tester must: join the group → open the opt-in link → tap <b>"Become a tester"</b> → install Keyscape from the Play Store link.</div></div>
+  <h3>Finding 12+ testers</h3>
+  <ul>
+    <li>Family and friends with Android phones - ask 15-20 to be safe in case someone drops out.</li>
+    <li>Music teachers, piano students, choir or school groups - they'll also give useful feedback.</li>
+    <li>Developer communities exchange testers (e.g. Reddit r/AndroidClosedTesting, "testers community" apps). Only use trustworthy sources.</li>
+  </ul>
+  <h3>During the 14 days</h3>
+  <ul class="check">
+    <li>Ask testers to <b>keep the app installed</b> and open it every few days (Google looks at real engagement).</li>
+    <li>Collect feedback (Google Form or a WhatsApp group). Note what you fixed - you'll describe it in Step 10.</li>
+    <li>If you fix bugs, upload a new build (higher versionCode) to the closed track - this does <b>not</b> reset the 14 days.</li>
+    <li>Check <b>Dashboard</b>: it shows "X testers opted in" and the days counted.</li>
+  </ul>
+  <div class="callout warn">The clock needs <b>12 testers opted in continuously</b>. If someone leaves on day 10 and you drop to 11, the count can restart. Recruit spares.</div>
+</section>
+
+<!-- ============================== STEP 10 ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">13</span><h1>Step 10 - Production access &amp; launch</h1></div>
+  <p>When the 14 days are done, the Dashboard shows <b>"Apply for production"</b>. You'll answer a short questionnaire. Be specific and honest - vague answers are the main cause of rejection.</p>
+  <table>
+    <tr><th style="width:38%">Typical question</th><th>Example answer for Keyscape</th></tr>
+    <tr><td>How did you recruit testers?</td><td>"Friends, family and two local piano students; 16 testers joined through a Google Group."</td></tr>
+    <tr><td>How easy was it to recruit?</td><td>Choose honestly (e.g. "Neither easy nor difficult").</td></tr>
+    <tr><td>Describe the engagement</td><td>"Testers completed lessons in Piano Foundations, played songs in Note Wait, Listen and Practice modes, connected two USB MIDI keyboards, and used Free Play daily."</td></tr>
+    <tr><td>Feedback summary</td><td>"Requests for a bigger keyboard on small phones and a MIDI reconnect button; a crash when … was fixed in 1.1.1."</td></tr>
+    <tr><td>Who is the app for?</td><td>"Self-learners of all ages who want a complete piano course from beginner to advanced, with or without a digital piano."</td></tr>
+    <tr><td>How is it different / valuable?</td><td>"Structured courses (172 lessons), 222 pieces including 184 complete public-domain scores with Easy/Medium/Hard levels, MIDI keyboard support, no ads and no data collection."</td></tr>
+    <tr><td>Changes made from testing</td><td>List your real fixes (Step 9 notes).</td></tr>
+    <tr><td>Is the app ready for production?</td><td>Yes, and explain how you know (testing on several phones, no crashes in Android vitals).</td></tr>
+  </table>
+  <p>Google typically answers within <b>7 days</b>. If declined, you'll get feedback; continue testing and apply again.</p>
+  <h3>Launch</h3>
+  <div class="step"><div class="num">1</div><div><b>Production → Create new release → Add from library</b> (the bundle your testers used) or upload the newest bundle.</div></div>
+  <div class="step"><div class="num">2</div><div>Release notes, e.g. <i>"First release of Keyscape: 14 courses with 172 lessons, 222 pieces with Easy, Medium and Hard levels, three guide modes, practice tools, composer storybooks and USB MIDI keyboard support."</i></div></div>
+  <div class="step"><div class="num">3</div><div>Optional but wise: <b>staged rollout</b> - start at 20%, watch for crashes for a day or two, then increase to 100%.</div></div>
+  <div class="step"><div class="num">4</div><div><b>Review release → Start rollout to Production.</b> Then open <b>Publishing overview</b> and click <b>Send for review</b> if changes are waiting.</div></div>
+  <div class="callout tip">When approved you'll get an email and the app appears at <b>play.google.com/store/apps/details?id=com.keyscape.app</b>. It can take a few hours before it shows up in search.</div>
+</section>
+
+<!-- ============================== AFTER LAUNCH ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">14</span><h1>After launch: updates &amp; upkeep</h1></div>
+  <h3>Releasing an update</h3>
+  <ol>
+    <li>Make your changes; raise <b>versionCode</b> (+1) and <b>versionName</b> (Step 3).</li>
+    <li>Run <span class="mono">.\gradlew :composeApp:bundleRelease</span>.</li>
+    <li>Upload to <b>Closed testing</b> first if it's a big change, then promote to Production; small fixes can go straight to Production.</li>
+    <li>Use a staged rollout for larger updates.</li>
+  </ol>
+  <h3>Watch these regularly</h3>
+  <table>
+    <tr><th style="width:30%">Where</th><th>Why</th></tr>
+    <tr><td><b>Quality → Android vitals</b></td><td>Crash and "App not responding" rates. Google lowers visibility of apps with crash rates above ~1.09% or ANR rates above ~0.47%.</td></tr>
+    <tr><td><b>Ratings and reviews</b></td><td>Reply politely - replies are public and improve trust.</td></tr>
+    <tr><td><b>Inbox / email</b></td><td>Policy notices with deadlines. Missing a deadline can remove the app.</td></tr>
+    <tr><td><b>Statistics</b></td><td>Installs and uninstalls by country and device.</td></tr>
+  </table>
+  <h3>Yearly duties</h3>
+  <ul>
+    <li><b>Target API update:</b> Google raises the required target API every year (around 31 August). Keyscape targets API 36 now; plan to update to API 37 by <b>August 2027</b>. This needs a newer Android Gradle Plugin (version 9) - budget a day for it.</li>
+    <li><b>Re-confirm declarations</b> (Data safety, target audience) when Google asks.</li>
+    <li>Keep the <b>privacy policy URL</b> online and your <b>contact details</b> current.</li>
+    <li>Log in to Play Console at least once a year - inactive accounts can be closed.</li>
+  </ul>
+  <div class="callout info">Optional growth ideas: translate the store listing (Store presence → Translations), add a short promo video, create a custom store listing for countries, and ask happy users to leave a rating.</div>
+</section>
+
+<!-- ============================== RULES ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">15</span><h1>Rules to keep in mind</h1></div>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Intellectual property</h3>
+      <p>Only publish content you have the right to use. Keyscape is prepared for this:</p>
+      <ul>
+        <li>Complete classical scores: public domain or Creative Commons (Mutopia Project), credited in the app.</li>
+        <li>Grand-piano samples: Salamander (CC BY 3.0), credited.</li>
+        <li>Pictures: public domain / CC0, credited.</li>
+        <li>Modern pop songs: <b>chord progressions only</b> - never add copyrighted melodies, lyrics or recordings (e.g. full "River Flows in You" or "Shape of You" scores). That's a common reason for takedowns.</li>
+        <li>MIDI files users import stay private on their own device.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">Metadata &amp; impersonation</h3>
+      <ul>
+        <li>Don't use other apps' names ("Perfect Piano", "Simply Piano", "Yousician") or logos in the title, description or screenshots.</li>
+        <li>Screenshots must show the real app.</li>
+        <li>No fake reviews, no incentivised ratings, no keyword stuffing.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">User data</h3>
+      <ul>
+        <li>If you ever add analytics, crash reporting, ads, accounts or internet features, you <b>must</b> update the Data Safety form and the privacy policy <b>before</b> releasing that version.</li>
+        <li>Adding the INTERNET permission alone changes nothing to report, but any SDK that sends data does.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">Account health</h3>
+      <ul>
+        <li>One account per person is enough - never create a second account to get around a suspension.</li>
+        <li>Respond to Google within the deadlines in policy emails.</li>
+        <li>Use accurate developer information.</li>
+      </ul>
+    </div>
+    <div class="card"><h3 style="margin-top:0">Children</h3>
+      <p>If you later choose an under-13 audience, the app must follow the <b>Families Policy</b> (no ads that aren't certified, no data collection). Keyscape already complies, but the review is stricter.</p>
+    </div>
+    <div class="card"><h3 style="margin-top:0">Money (if ever)</h3>
+      <p>Charging or selling in-app content requires a <b>payments profile</b> (merchant account) and Google Play Billing. The free app as built needs none of this.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TROUBLESHOOTING ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">16</span><h1>Troubleshooting &amp; FAQ</h1></div>
+  <table>
+    <tr><th style="width:36%">Problem</th><th>Solution</th></tr>
+    <tr><td>"Version code 4 has already been used"</td><td>Raise <span class="mono">versionCode</span> in <span class="mono">composeApp/build.gradle.kts</span> and rebuild.</td></tr>
+    <tr><td>"The Android App Bundle was signed with the wrong key"</td><td>You built without <span class="mono">keystore.properties</span> (debug key). Make sure the file and the <span class="mono">keystore</span> folder are in the project root, then rebuild.</td></tr>
+    <tr><td>"Your app targets API level X, it must target at least Y"</td><td>Google raised the yearly requirement. Increase <span class="mono">targetSdk</span>/<span class="mono">compileSdk</span>, update the Android Gradle Plugin, rebuild and test.</td></tr>
+    <tr><td>"Package name already exists"</td><td>Another app uses <span class="mono">com.keyscape.app</span>. Change <span class="mono">applicationId</span> (e.g. <span class="mono">com.yourname.keyscape</span>) and rebuild.</td></tr>
+    <tr><td>Identity verification rejected</td><td>Re-upload a sharper photo; make sure name and address match exactly what you entered.</td></tr>
+    <tr><td>Closed-test day counter not moving</td><td>Check that ≥12 testers have <b>opted in</b> (not just been invited) and that the closed release is actually <b>published</b> (reviewed and available).</td></tr>
+    <tr><td>Production access declined</td><td>Read Google's feedback, keep testing (more engagement, more detailed notes), and re-apply after making improvements.</td></tr>
+    <tr><td>App rejected for "Metadata"</td><td>Remove other brand names, "best/#1", emojis or misleading claims from title/description; resubmit.</td></tr>
+    <tr><td>App rejected for "Intellectual property"</td><td>Remove the flagged content or provide proof of licence (the credits screen and Mutopia/Wikimedia links help).</td></tr>
+    <tr><td>Testers can't find the app</td><td>They must open the opt-in link while signed in with the invited Google account; it can take a few hours after rollout.</td></tr>
+    <tr><td>Lost the upload key</td><td>Play Console → <b>Setup → App signing</b> → request upload key reset; generate a new key with <span class="mono">keytool</span> and follow the instructions.</td></tr>
+  </table>
+  <h3>FAQ</h3>
+  <p><b>Can I publish the Windows version on the Play Store?</b> No - the Play Store is for Android (and ChromeOS, which runs your Android app). The Windows installer in <span class="mono">dist</span> could go to the Microsoft Store separately (one-time fee ~US$19 for individuals) - a different process.</p>
+  <p><b>Can I change the app after publishing?</b> Yes - everything except the package name and "free" status. Upload a new version any time.</p>
+  <p><b>Will Google see my source code?</b> No, only the compiled bundle.</p>
+  <p><b>Do I need a company or GST registration?</b> Not for a free app on a personal account.</p>
+</section>
+
+<!-- ============================== CHECKLIST ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">17</span><h1>Master checklist</h1></div>
+  <div class="grid2">
+    <div>
+      <h3>Before Play Console</h3>
+      <ul class="check">
+        <li>Decide final package name (keep <span class="mono">com.keyscape.app</span> or change it)</li>
+        <li>Back up <span class="mono">keystore/</span> + <span class="mono">keystore.properties</span> + password</li>
+        <li>Test <span class="mono">Keyscape-1.4.5-android.apk</span> on a real phone</li>
+        <li>Switch on GitHub Pages; open the privacy policy URL</li>
+        <li>Copy the privacy policy URL</li>
+        <li>Create a dedicated Google account with 2-Step Verification</li>
+      </ul>
+      <h3>Account</h3>
+      <ul class="check">
+        <li>Sign up (personal) and pay US$25</li>
+        <li>Verify identity (ID), phone and email</li>
+        <li>Verify device with the Play Console app</li>
+      </ul>
+      <h3>App setup</h3>
+      <ul class="check">
+        <li>Create app (name, English, App, Free)</li>
+        <li>Main store listing: texts + icon + feature graphic + phone and tablet screenshots</li>
+        <li>Promo video on YouTube, link in the listing (optional)</li>
+        <li>Store settings: Education category, contact email</li>
+        <li>Privacy policy URL</li>
+        <li>App access, Ads, Content rating, Target audience</li>
+        <li>Data safety (No data collected), News, Government, Financial, Health, Advertising ID</li>
+        <li>Countries / regions</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Testing</h3>
+      <ul class="check">
+        <li>Uninstall the USB test build from your phone</li>
+        <li>Internal testing release with the .aab; install it yourself</li>
+        <li>Create Google Group for testers</li>
+        <li>Closed testing release; rollout; wait for review</li>
+        <li>Recruit 15-20 testers; all opted in and installed</li>
+        <li>14 continuous days with ≥12 testers</li>
+        <li>Collect feedback; fix and upload new builds if needed</li>
+      </ul>
+      <h3>Launch</h3>
+      <ul class="check">
+        <li>Apply for production access (detailed answers)</li>
+        <li>Production release with release notes</li>
+        <li>Staged rollout 20% → 100%</li>
+        <li>Confirm the store page is live</li>
+      </ul>
+      <h3>Ongoing</h3>
+      <ul class="check">
+        <li>Check Android vitals and reviews weekly</li>
+        <li>Answer policy emails before deadlines</li>
+        <li>Raise versionCode for every update</li>
+        <li>Target API 37 before August 2027</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FILES ============================== -->
+<section class="page">
+  <div class="section-head"><span class="big">18</span><h1>Where everything is in your project</h1></div>
+  <p>Project folder: <span class="mono">C:\Users\HP\OneDrive\Desktop\my_projects\Keyscape</span> · on GitHub: <span class="mono">github.com/Abhijay-Nagal/Keyscape</span></p>
+  <table>
+    <tr><th style="width:46%">Path</th><th>What it is</th></tr>
+    <tr><td><span class="mono">dist/Keyscape-1.4.5-play-store.aab</span></td><td>The file you upload to Google Play</td></tr>
+    <tr><td><span class="mono">dist/Keyscape-1.4.5-android.apk</span></td><td>Same build as an installable APK for testing on your phone</td></tr>
+    <tr><td><span class="mono">keystore/pianoquest-upload.jks</span></td><td>Your upload key - back it up, keep it secret</td></tr>
+    <tr><td><span class="mono">keystore/README-KEEP-SAFE.txt</span></td><td>Alias and password of the upload key</td></tr>
+    <tr><td><span class="mono">keystore.properties</span></td><td>Tells the build where the key is (secret)</td></tr>
+    <tr><td><span class="mono">docs/privacy-policy.html</span></td><td>Privacy policy to host online</td></tr>
+    <tr><td><span class="mono">docs/play-store/listing.md</span></td><td>Store texts and all form answers</td></tr>
+    <tr><td><span class="mono">docs/play-store/*.png</span></td><td>Icon, feature graphic, phone and tablet screenshots</td></tr>
+    <tr><td><span class="mono">promo/out/</span></td><td>Promo video, thumbnail, captions and YouTube text (not on GitHub - too large)</td></tr>
+    <tr><td><span class="mono">dist/</span>, <span class="mono">keystore/</span>, <span class="mono">keystore.properties</span></td><td>Builds and signing secrets - on this computer only, never on GitHub. Back them up.</td></tr>
+    <tr><td><span class="mono">composeApp/build.gradle.kts</span></td><td>Package name, versionCode/versionName, target SDK</td></tr>
+    <tr><td><span class="mono">composeApp/src/commonMain/.../AppInfo.kt</span></td><td>Version shown in the About screen</td></tr>
+    <tr><td><span class="mono">README.md</span></td><td>Project overview and build commands</td></tr>
+  </table>
+  <h3>Build commands (PowerShell, in the project folder)</h3>
+  <pre>.\gradlew :composeApp:bundleRelease      # Play Store bundle (.aab)
+.\gradlew :composeApp:assembleRelease    # installable .apk
+.\gradlew :composeApp:desktopTest        # run all automated tests</pre>
+  <div class="callout tip" style="margin-top:18px">You're ready. Start with Step 1 today - while Google verifies your identity, finish Steps 2-4. Then it's mostly waiting for the 14-day test. Good luck with the launch!</div>
+</section>
+
+</body>
+</html>

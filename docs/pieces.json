@@ -1,0 +1,692 @@
+[
+ {
+  "id": "minuet-g",
+  "title": "Minuet in G major, BWV Anh. 114",
+  "composer": "Christian Petzold (attr. J.S. Bach)",
+  "genre": "BAROQUE",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWVAnh114/anna-magdalena-04/anna-magdalena-04.mid",
+  "parts": 0
+ },
+ {
+  "id": "musette-d",
+  "title": "Musette in D major, BWV Anh. 126",
+  "composer": "J.S. Bach (Anna Magdalena Notebook)",
+  "genre": "BAROQUE",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWVAnh126/anna-magdalena-22/anna-magdalena-22.mid",
+  "parts": 0
+ },
+ {
+  "id": "prelude-c",
+  "title": "Prelude in C major, BWV 846",
+  "composer": "J.S. Bach",
+  "genre": "BAROQUE",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWV846/wtk1-prelude1/wtk1-prelude1.mid",
+  "parts": 0
+ },
+ {
+  "id": "fugue-c",
+  "title": "Fugue in C major, BWV 846",
+  "composer": "J.S. Bach",
+  "genre": "BAROQUE",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWV846/wtk1-fugue1/wtk1-fugue1.mid",
+  "parts": 0
+ },
+ {
+  "id": "invention-1",
+  "title": "Two-Part Invention No. 1 in C, BWV 772",
+  "composer": "J.S. Bach",
+  "genre": "BAROQUE",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWV772/bach-invention-01/bach-invention-01.mid",
+  "parts": 0
+ },
+ {
+  "id": "invention-4",
+  "title": "Two-Part Invention No. 4 in D minor, BWV 775",
+  "composer": "J.S. Bach",
+  "genre": "BAROQUE",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWV775/bach-invention-04/bach-invention-04.mid",
+  "parts": 0
+ },
+ {
+  "id": "invention-8",
+  "title": "Two-Part Invention No. 8 in F, BWV 779",
+  "composer": "J.S. Bach",
+  "genre": "BAROQUE",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BachJS/BWV779/bach-invention-08/bach-invention-08.mid",
+  "parts": 0
+ },
+ {
+  "id": "canon-d",
+  "title": "Canon in D (complete, keyboard)",
+  "composer": "Johann Pachelbel",
+  "genre": "BAROQUE",
+  "difficulty": 4,
+  "license": "CC BY 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/PachelbelJ/Canon_per_3_Violini_e_Basso/Canon_per_3_Violini_e_Basso-mids.zip",
+  "parts": 5
+ },
+ {
+  "id": "fur-elise",
+  "title": "Für Elise, WoO 59 (complete)",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/WoO59/fur_Elise_WoO59/fur_Elise_WoO59.mid",
+  "parts": 0
+ },
+ {
+  "id": "moonlight",
+  "title": "Moonlight Sonata, Op. 27/2 - I. Adagio sostenuto",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "moonlight-2",
+  "title": "Moonlight Sonata - II. Allegretto",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 4,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "moonlight-3",
+  "title": "Moonlight Sonata - III. Presto agitato",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 5,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O27/moonlight/moonlight-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "pathetique-1",
+  "title": "Pathétique Sonata, Op. 13 - I. Grave, Allegro",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O13/pathetique-1/pathetique-1.mid",
+  "parts": 0
+ },
+ {
+  "id": "pathetique-2",
+  "title": "Pathétique Sonata - II. Adagio cantabile",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O13/pathetique-2/pathetique-2.mid",
+  "parts": 0
+ },
+ {
+  "id": "pathetique-3",
+  "title": "Pathétique Sonata - III. Rondo",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O13/pathetique-3/pathetique-3.mid",
+  "parts": 0
+ },
+ {
+  "id": "rage-penny",
+  "title": "Rage Over a Lost Penny, Op. 129",
+  "composer": "Ludwig van Beethoven",
+  "genre": "CLASSICAL",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BeethovenLv/O129/beethoven_rondo_op129/beethoven_rondo_op129.mid",
+  "parts": 0
+ },
+ {
+  "id": "sonata-facile",
+  "title": "Sonata in C, K. 545 - I. Allegro",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-1/K545-1.mid",
+  "parts": 0
+ },
+ {
+  "id": "sonata-facile-2",
+  "title": "Sonata in C, K. 545 - II. Andante",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-2/K545-2.mid",
+  "parts": 0
+ },
+ {
+  "id": "sonata-facile-3",
+  "title": "Sonata in C, K. 545 - III. Rondo",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV545/K545-3/K545-3.mid",
+  "parts": 0
+ },
+ {
+  "id": "turkish-march",
+  "title": "Rondo alla Turca, K. 331 (complete)",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV331/KV331_3_RondoAllaTurca/KV331_3_RondoAllaTurca.mid",
+  "parts": 0
+ },
+ {
+  "id": "k331-theme",
+  "title": "Sonata K. 331 - Theme (Andante grazioso)",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV331/KV331_1_1_tema/KV331_1_1_tema.mid",
+  "parts": 0
+ },
+ {
+  "id": "fantasy-d",
+  "title": "Fantasia in D minor, K. 397",
+  "composer": "Wolfgang Amadeus Mozart",
+  "genre": "CLASSICAL",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/MozartWA/KV397/Fantasia/Fantasia.mid",
+  "parts": 0
+ },
+ {
+  "id": "clementi-36-1",
+  "title": "Sonatina Op. 36 No. 1 - I. Allegro",
+  "composer": "Muzio Clementi",
+  "genre": "CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ClementiM/O36/sonatina-1/sonatina-1-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "clementi-36-1b",
+  "title": "Sonatina Op. 36 No. 1 - II. Andante",
+  "composer": "Muzio Clementi",
+  "genre": "CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ClementiM/O36/sonatina-1/sonatina-1-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "clementi-36-1c",
+  "title": "Sonatina Op. 36 No. 1 - III. Vivace",
+  "composer": "Muzio Clementi",
+  "genre": "CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ClementiM/O36/sonatina-1/sonatina-1-mids.zip",
+  "parts": 0
+ },
+ {
+  "id": "kuhlau-20-1",
+  "title": "Sonatina Op. 20 No. 1 - Allegro",
+  "composer": "Friedrich Kuhlau",
+  "genre": "CLASSICAL",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/KuhlauF/O20/sonatine-1-allegro/sonatine-1-allegro.mid",
+  "parts": 0
+ },
+ {
+  "id": "nocturne-9-2",
+  "title": "Nocturne in E-flat, Op. 9 No. 2",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O9/chopin_nocturne_op9_n2/chopin_nocturne_op9_n2.mid",
+  "parts": 0
+ },
+ {
+  "id": "nocturne-72",
+  "title": "Nocturne in E minor, Op. 72 No. 1",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O72/nocturne_in_e_minor/nocturne_in_e_minor.mid",
+  "parts": 0
+ },
+ {
+  "id": "prelude-e-minor",
+  "title": "Prelude in E minor, Op. 28 No. 4",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-4/Chop-28-4.mid",
+  "parts": 0
+ },
+ {
+  "id": "prelude-a",
+  "title": "Prelude in A major, Op. 28 No. 7",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-7/Chop-28-7.mid",
+  "parts": 0
+ },
+ {
+  "id": "prelude-b-minor",
+  "title": "Prelude in B minor, Op. 28 No. 6",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-6/Chop-28-6.mid",
+  "parts": 0
+ },
+ {
+  "id": "raindrop",
+  "title": "'Raindrop' Prelude, Op. 28 No. 15",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-15/Chop-28-15.mid",
+  "parts": 0
+ },
+ {
+  "id": "prelude-c-minor",
+  "title": "Prelude in C minor, Op. 28 No. 20",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O28/Chop-28-20/Chop-28-20.mid",
+  "parts": 0
+ },
+ {
+  "id": "minute-waltz",
+  "title": "'Minute' Waltz, Op. 64 No. 1",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O64/chopin_valse_op64_no1/chopin_valse_op64_no1.mid",
+  "parts": 0
+ },
+ {
+  "id": "waltz-b-minor",
+  "title": "Waltz in B minor, Op. 69 No. 2",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O69/w10-h-moll-cfi/w10-h-moll-cfi.mid",
+  "parts": 0
+ },
+ {
+  "id": "fantaisie-impromptu",
+  "title": "Fantaisie-Impromptu, Op. 66",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O66/chopin_fantaisie-impromptu/chopin_fantaisie-impromptu.mid",
+  "parts": 0
+ },
+ {
+  "id": "revolutionary",
+  "title": "'Revolutionary' Étude, Op. 10 No. 12",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O10/op-10-12-wfi/op-10-12-wfi.mid",
+  "parts": 0
+ },
+ {
+  "id": "black-key",
+  "title": "'Black Key' Étude, Op. 10 No. 5",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O10/chp-10-05/chp-10-05.mid",
+  "parts": 0
+ },
+ {
+  "id": "aeolian-harp",
+  "title": "'Aeolian Harp' Étude, Op. 25 No. 1",
+  "composer": "Frédéric Chopin",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ChopinFF/O25/chopin-op-25-01/chopin-op-25-01.mid",
+  "parts": 0
+ },
+ {
+  "id": "traumerei",
+  "title": "Träumerei (Kinderszenen No. 7)",
+  "composer": "Robert Schumann",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No07/SchumannOp15No07.mid",
+  "parts": 0
+ },
+ {
+  "id": "foreign-lands",
+  "title": "Of Foreign Lands and Peoples (Kinderszenen No. 1)",
+  "composer": "Robert Schumann",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/SchumannR/O15/SchumannOp15No01/SchumannOp15No01.mid",
+  "parts": 0
+ },
+ {
+  "id": "mountain-king",
+  "title": "In the Hall of the Mountain King",
+  "composer": "Edvard Grieg",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne.mid",
+  "parts": 0
+ },
+ {
+  "id": "troldhaugen",
+  "title": "Wedding Day at Troldhaugen, Op. 65 No. 6",
+  "composer": "Edvard Grieg",
+  "genre": "ROMANTIC",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/GriegE/O65/troldhaugen/troldhaugen.mid",
+  "parts": 0
+ },
+ {
+  "id": "ases-death",
+  "title": "Åse's Death (Peer Gynt)",
+  "composer": "Edvard Grieg",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/GriegE/O46/02-lamortdase/02-lamortdase.mid",
+  "parts": 0
+ },
+ {
+  "id": "consolation-3",
+  "title": "Consolation No. 3, S. 172",
+  "composer": "Franz Liszt",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "CC BY 3.0",
+  "source": "https://www.mutopiaproject.org/ftp/LisztF/S.172/liszt-consolation-no3/liszt-consolation-no3.mid",
+  "parts": 0
+ },
+ {
+  "id": "brahms-waltz-15",
+  "title": "Waltz in A-flat, Op. 39 No. 15",
+  "composer": "Johannes Brahms",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BrahmsJ/O39/waltz-op39-15/waltz-op39-15.mid",
+  "parts": 0
+ },
+ {
+  "id": "brahms-intermezzo",
+  "title": "Intermezzo in A, Op. 118 No. 2",
+  "composer": "Johannes Brahms",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BrahmsJ/O118/intermezzo/intermezzo.mid",
+  "parts": 0
+ },
+ {
+  "id": "january",
+  "title": "The Seasons: January (By the Fireside)",
+  "composer": "Pyotr Tchaikovsky",
+  "genre": "ROMANTIC",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O37/Tschaikowsky-op37.1/Tschaikowsky-op37.1.mid",
+  "parts": 0
+ },
+ {
+  "id": "old-french-song",
+  "title": "Old French Song, Op. 39 No. 16",
+  "composer": "Pyotr Tchaikovsky",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong.mid",
+  "parts": 0
+ },
+ {
+  "id": "wooden-soldiers",
+  "title": "March of the Wooden Soldiers, Op. 39 No. 5",
+  "composer": "Pyotr Tchaikovsky",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/05MarchOfTheWoodenSoldiers/05MarchOfTheWoodenSoldiers.mid",
+  "parts": 0
+ },
+ {
+  "id": "morning-prayer",
+  "title": "Morning Prayer, Op. 39 No. 1",
+  "composer": "Pyotr Tchaikovsky",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/01MorningPrayer/01MorningPrayer.mid",
+  "parts": 0
+ },
+ {
+  "id": "burgmuller-arabesque",
+  "title": "Arabesque, Op. 100 No. 2",
+  "composer": "Friedrich Burgmüller",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-02/25EF-02.mid",
+  "parts": 0
+ },
+ {
+  "id": "burgmuller-candeur",
+  "title": "La Candeur, Op. 100 No. 1",
+  "composer": "Friedrich Burgmüller",
+  "genre": "ROMANTIC",
+  "difficulty": 1,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-01/25EF-01.mid",
+  "parts": 0
+ },
+ {
+  "id": "burgmuller-progres",
+  "title": "Progrès, Op. 100 No. 6",
+  "composer": "Friedrich Burgmüller",
+  "genre": "ROMANTIC",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-06/25EF-06.mid",
+  "parts": 0
+ },
+ {
+  "id": "burgmuller-ballade",
+  "title": "Ballade, Op. 100 No. 15",
+  "composer": "Friedrich Burgmüller",
+  "genre": "ROMANTIC",
+  "difficulty": 3,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/BurgmullerJFF/O100/25EF-15/25EF-15.mid",
+  "parts": 0
+ },
+ {
+  "id": "clair-de-lune",
+  "title": "Clair de Lune (Suite bergamasque)",
+  "composer": "Claude Debussy",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/DebussyC/L75/debussy_Ste_Bergamesq_Clair/debussy_Ste_Bergamesq_Clair.mid",
+  "parts": 0
+ },
+ {
+  "id": "arabesque-1",
+  "title": "Arabesque No. 1",
+  "composer": "Claude Debussy",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/DebussyC/L66/debussy_Arabesque_1/debussy_Arabesque_1.mid",
+  "parts": 0
+ },
+ {
+  "id": "gymnopedie",
+  "title": "Gymnopédie No. 1 (complete)",
+  "composer": "Erik Satie",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_1/gymnopedie_1.mid",
+  "parts": 0
+ },
+ {
+  "id": "gymnopedie-2",
+  "title": "Gymnopédie No. 2",
+  "composer": "Erik Satie",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_2/gymnopedie_2.mid",
+  "parts": 0
+ },
+ {
+  "id": "gymnopedie-3",
+  "title": "Gymnopédie No. 3",
+  "composer": "Erik Satie",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 2,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/SatieE/gymnopedie_3/gymnopedie_3.mid",
+  "parts": 0
+ },
+ {
+  "id": "gnossienne-1",
+  "title": "Gnossienne No. 1",
+  "composer": "Erik Satie",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 3,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/SatieE/Gnossienne/no_1/no_1.mid",
+  "parts": 0
+ },
+ {
+  "id": "rach-prelude",
+  "title": "Prelude in C-sharp minor, Op. 3 No. 2",
+  "composer": "Sergei Rachmaninoff",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 5,
+  "license": "CC BY-SA 4.0",
+  "source": "https://www.mutopiaproject.org/ftp/RachmaninoffS/O3/rach-prelude-op3-no2/rach-prelude-op3-no2.mid",
+  "parts": 0
+ },
+ {
+  "id": "scriabin-etude",
+  "title": "Étude in C-sharp minor, Op. 2 No. 1",
+  "composer": "Alexander Scriabin",
+  "genre": "MODERN_CLASSICAL",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/ScriabinA/O2/scriabin_etude_2_1/scriabin_etude_2_1.mid",
+  "parts": 0
+ },
+ {
+  "id": "entertainer",
+  "title": "The Entertainer (complete)",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/entertainer/entertainer.mid",
+  "parts": 0
+ },
+ {
+  "id": "maple-leaf",
+  "title": "Maple Leaf Rag",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 5,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/maple/maple.mid",
+  "parts": 0
+ },
+ {
+  "id": "elite-syncopations",
+  "title": "Elite Syncopations",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/EliteSyncopations/EliteSyncopations.mid",
+  "parts": 0
+ },
+ {
+  "id": "solace",
+  "title": "Solace (A Mexican Serenade)",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/solace/solace.mid",
+  "parts": 0
+ },
+ {
+  "id": "easy-winners",
+  "title": "The Easy Winners",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/winners/winners.mid",
+  "parts": 0
+ },
+ {
+  "id": "bethena",
+  "title": "Bethena (A Concert Waltz)",
+  "composer": "Scott Joplin",
+  "genre": "RAGTIME",
+  "difficulty": 4,
+  "license": "Public Domain",
+  "source": "https://www.mutopiaproject.org/ftp/JoplinS/bethena/bethena.mid",
+  "parts": 0
+ }
+]
