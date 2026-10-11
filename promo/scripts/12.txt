@@ -1,0 +1,7 @@
+wait 1.0
+tap 656 282
+wait 1.4
+tap 1228 406
+wait 1.4
+tap 1546 720
+wait 5.0

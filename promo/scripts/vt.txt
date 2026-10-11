@@ -1,0 +1,5 @@
+wait 0.5
+tap 428 70
+wait 0.8
+tap 286 70
+wait 12

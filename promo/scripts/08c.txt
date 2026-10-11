@@ -1,0 +1,15 @@
+wait 1.0
+tap 900 976
+wait 2.4
+tap 2076 176
+wait 2.7
+tap 2076 176
+wait 2.7
+tap 2076 176
+wait 2.7
+tap 2076 176
+wait 2.7
+tap 2076 176
+wait 2.7
+tap 2076 176
+wait 2.7

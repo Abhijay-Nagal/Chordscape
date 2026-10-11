@@ -1,0 +1,9 @@
+wait 1.5
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 3

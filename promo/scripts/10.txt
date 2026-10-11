@@ -1,0 +1,11 @@
+wait 1.0
+tap 1024 980
+wait 0.9
+tap 1202 980
+wait 0.9
+tap 1380 980
+wait 1.8
+tap 1516 840
+wait 1.8
+tap 1736 980
+wait 2.5

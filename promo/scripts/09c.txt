@@ -1,0 +1,23 @@
+wait 1.2
+swipe 2000 740 700 740 2000
+wait 0.8
+swipe 2000 740 700 740 2000
+wait 1.0
+swipe 500 740 2200 740 700
+wait 0.3
+swipe 500 740 2200 740 700
+wait 0.3
+swipe 500 740 2200 740 700
+wait 1.4
+tap 932 740
+wait 2.4
+tap 606 980
+wait 2.6
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 2.8
+tap 2110 986
+wait 2.8

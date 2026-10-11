@@ -1,0 +1,13 @@
+wait 2.4
+tap 1020 432
+wait 2.2
+tap 1998 484
+wait 2.8
+tap 886 288
+wait 2.2
+tap 1998 484
+wait 2.8
+tap 1014 718
+wait 2.2
+tap 1998 484
+wait 3.2

@@ -1,0 +1,5 @@
+wait 0.8
+tap 1766 896
+wait 3.4
+tap 1994 540
+wait 2.8
